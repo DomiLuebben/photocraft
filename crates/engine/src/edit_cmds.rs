@@ -1282,6 +1282,47 @@ mod tests {
         assert_eq!(s.active().unwrap().doc.layers.len(), before + 1);
     }
 
+    /// #2478, #3588: several layers copied in one document paste into another, in that document's
+    /// bit depth and with their own pixels, in order, as one undo step.
+    #[test]
+    fn paste_several_layers_into_another_document() {
+        for depth in [16, 32] {
+            let mut s = session();
+            let a = s.active().unwrap().active_layer.unwrap();
+            let b = LayerId(s.execute("layer.new.layer", json!({})).unwrap()["layer"].as_u64().unwrap());
+            s.edit("paint", |doc, _| {
+                doc.layer_mut(b).unwrap().surface_mut().unwrap().fill_rect(Rect::new(60, 60, 80, 90), &[0.0, 0.0, 1.0, 1.0]);
+                Ok(())
+            })
+            .unwrap();
+            s.execute("layer.select", json!({"layer": a.0})).unwrap();
+            s.execute("layer.select", json!({"layer": b.0, "mode": "toggle"})).unwrap();
+            s.execute("edit.copy", json!({})).unwrap();
+
+            s.execute("file.new", json!({"width": 120, "height": 120, "depth": depth})).unwrap();
+            assert_eq!(s.active_index().unwrap(), 1, "the new document is the active tab");
+            let (before, steps) = (s.active().unwrap().doc.layers.len(), s.active().unwrap().history.past_len());
+            s.execute("edit.pasteSpecial.pasteInPlace", json!({})).unwrap();
+            let st = s.active().unwrap();
+            assert_eq!(st.doc.layers.len(), before + 2, "{depth}-bit: both layers arrive");
+            assert_eq!(st.history.past_len(), steps + 1, "{depth}-bit: one undo step");
+            let n = st.doc.layers.len();
+            let (pa, pb) = (st.doc.layers[n - 2].surface().unwrap(), st.doc.layers[n - 1].surface().unwrap());
+            assert_eq!(pa.format().sample, st.doc.depth, "{depth}-bit: converted to the target depth");
+            assert_eq!(pb.format().sample, st.doc.depth, "{depth}-bit: converted to the target depth");
+            assert_eq!(pa.content_bounds(), Rect::new(10, 10, 50, 30), "{depth}-bit: the lower layer first");
+            assert_eq!(pb.content_bounds(), Rect::new(60, 60, 80, 90));
+            let (mut red, mut blue) = ([[0.0f32; 4]; 1], [[0.0f32; 4]; 1]);
+            pa.read_rgba_into(Rect::new(20, 20, 21, 21), &mut red);
+            pb.read_rgba_into(Rect::new(70, 70, 71, 71), &mut blue);
+            assert!(red[0][0] > 0.9 && red[0][1] < 0.1 && red[0][2] < 0.1, "{depth}-bit: red kept: {:?}", red[0]);
+            assert!(blue[0][2] > 0.9 && blue[0][0] < 0.1 && blue[0][1] < 0.1, "{depth}-bit: blue kept: {:?}", blue[0]);
+            assert!(s.undo());
+            assert_eq!(s.active().unwrap().doc.layers.len(), before, "{depth}-bit: undo removes both");
+            assert_eq!(s.documents().len(), 2, "the source document is untouched");
+        }
+    }
+
     /// #2478: the Background in a multi-layer copy pastes as an ordinary, unlocked layer.
     #[test]
     fn copying_the_background_with_another_layer_pastes_an_ordinary_layer() {
