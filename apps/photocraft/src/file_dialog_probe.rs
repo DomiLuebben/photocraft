@@ -13,6 +13,8 @@
 use std::sync::OnceLock;
 
 /// What the probe found. `None` means it couldn't tell, which counts as present.
+// Only Linux probes; the types and helpers stay testable on every platform.
+#[cfg_attr(not(target_os = "linux"), allow(dead_code))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Findings {
     /// `libdbus-1.so.3` is in the linker cache (`rfd` loads it for the portal).
@@ -24,6 +26,7 @@ pub struct Findings {
 }
 
 /// The message for `findings`, or `None` when some file dialog should work.
+#[cfg_attr(not(target_os = "linux"), allow(dead_code))]
 pub fn problem(findings: Findings) -> Option<String> {
     let portal = findings.libdbus != Some(false) && findings.file_chooser_portal != Some(false);
     if portal || findings.zenity {
@@ -43,6 +46,7 @@ pub fn known_problem() -> Option<String> {
 }
 
 /// Whether `program` is an executable file in one of the `path` directories.
+#[cfg_attr(not(target_os = "linux"), allow(dead_code))]
 fn on_path(program: &str, path: &std::ffi::OsStr) -> bool {
     std::env::split_paths(path).any(|dir| dir.join(program).is_file())
 }
@@ -63,9 +67,6 @@ pub fn start() {
         log::warn!("couldn't start the file dialog probe: {e}");
     }
 }
-
-#[cfg(not(target_os = "linux"))]
-pub fn start() {}
 
 /// Whether the portal's `FileChooser` interface is on the session bus: `Some(false)` only when the
 /// bus or the interface is definitely absent, `None` for anything inconclusive (a slow reply).
