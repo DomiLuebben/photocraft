@@ -555,6 +555,17 @@ fn main() -> eframe::Result {
 
 #[cfg(test)]
 mod tests {
+    /// On X11 the window's WM_CLASS is the app id (`with_app_id`), and the shell finds the launcher
+    /// by comparing it with `StartupWMClass`. It said `photocraft`, so X11 sessions couldn't tell
+    /// the window from its launcher (no icon, a separate taskbar entry).
+    #[test]
+    fn the_launcher_names_the_window_class_the_app_uses() {
+        const DESKTOP: &str = include_str!("../../../packaging/linux/ai.storyteller.photocraft.desktop");
+        let class = DESKTOP.lines().find_map(|line| line.strip_prefix("StartupWMClass="));
+        assert_eq!(class, Some(super::APP_ID));
+        assert!(DESKTOP.lines().any(|line| line == format!("Icon={}", super::APP_ID)));
+    }
+
     #[test]
     fn window_and_panel_geometry_survive_a_restart() {
         let options = super::native_options(super::CUSTOM_TITLEBAR);
