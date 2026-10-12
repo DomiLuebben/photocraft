@@ -581,3 +581,25 @@ fn the_studio_lock_button_shows_every_lock() {
         assert_eq!(h.get_by_label("Lock layer").accesskit_node().toggled(), Some(egui::accesskit::Toggled::True), "{key}");
     }
 }
+
+/// The Background layer is stored under the English name "Background" (File › New), so only
+/// its display follows the UI language. A layer someone named "Background" without the lock, and
+/// every other name, show as they are.
+#[test]
+fn only_the_background_layers_display_name_is_translated() {
+    use photocraft_doc::{Layer, Locks};
+    let mut s = photocraft_engine::Session::new();
+    s.execute("file.new", json!({"width": 8, "height": 8})).unwrap();
+    let background = s.active().unwrap().doc.layers[0].clone();
+    assert_eq!(background.name, "Background");
+    let plain = Layer { name: "Background".into(), locks: Locks::default(), ..background.clone() };
+    let other = Layer { name: "Ebene 1".into(), ..background.clone() };
+    let de = crate::i18n::lang_from_tag("de").unwrap();
+    crate::i18n::with_language(de, || {
+        assert_eq!(super::display_name(&background), "Hintergrund");
+        assert_eq!(super::display_name(&plain), "Background", "an unlocked layer that happens to carry the name");
+        assert_eq!(super::display_name(&other), "Ebene 1");
+    });
+    crate::i18n::with_language(crate::i18n::Lang::EN, || assert_eq!(super::display_name(&background), "Background"));
+    assert_eq!(background.name, "Background", "the stored name is untouched");
+}

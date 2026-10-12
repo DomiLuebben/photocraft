@@ -16,6 +16,17 @@ use std::sync::Arc;
 use crate::icons;
 use crate::theme::{self, Tokens};
 
+/// The name the UI shows for `layer`. File › New stores the Background layer under the English
+/// name "Background" (a PSD carries whatever name its Photoshop gave it), so only its display
+/// follows the UI language ("Hintergrund"); any other name is shown as it is.
+pub(crate) fn display_name(layer: &Layer) -> std::borrow::Cow<'_, str> {
+    if layer.name == "Background" && layer.has_background_traits() {
+        std::borrow::Cow::Borrowed(crate::i18n::t("Background"))
+    } else {
+        std::borrow::Cow::Borrowed(&layer.name)
+    }
+}
+
 /// Space kept free at a row's right edge: the overlay scrollbar sits there.
 pub const RIGHT_PAD: f32 = 10.0;
 /// Gap between indicators, and between the name and the first indicator.
