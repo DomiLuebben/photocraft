@@ -19,6 +19,12 @@
 # ArtCraft, OpenType, Lab ...) stay as they are; RGB/CMYK read RVB/CMJN; the trailing "…" of
 # dialog commands is kept.
 
+# Channel Options and New Spot Channel (#3761)
+	Channel Color	Couleur de la couche
+	Color Indicates:	La couleur indique :
+	Solidity:	Solidité :
+	Ink Characteristics	Caractéristiques de l’encre
+
 # Guide layout dialog
 
 # Custom print paper (#3820)
@@ -79,6 +85,8 @@
 	Save	Enregistrer
 	Save As…	Enregistrer sous…
 	Save a Copy…	Enregistrer une copie…
+	{name} can't keep everything in this document	{name} ne peut pas conserver tout le contenu de ce document
+	Choose a format that keeps it, such as Photoshop (PSD), or save a copy.	Choisissez un format qui conserve tout, comme Photoshop (PSD), ou enregistrez une copie.
 	Revert	Revenir à la version enregistrée
 	Export	Exporter
 	Quick Export as PNG	Exportation rapide au format PNG
@@ -369,6 +377,7 @@
 	Update Modified Content	Mettre à jour le contenu modifié
 	Update All Modified Content	Mettre à jour tout le contenu modifié
 	Stack Mode	Mode de pile
+	Choose Stack Mode:	Choisir le mode de pile :
 	Entropy	Entropie
 	Kurtosis	Kurtosis
 	Maximum	Maximum
@@ -852,6 +861,7 @@
 	Background	Arrière-plan
 	Background Color	Couleur d'arrière-plan
 	Background Contents	Contenu de l'arrière-plan
+	Custom background color	Couleur d'arrière-plan personnalisée
 	Balance	Balance
 	Baseline	Ligne de base
 	Baseline shift	Décalage de la ligne de base
@@ -2838,6 +2848,7 @@ cameraRaw	Blending	Fusion
 	Fuchsia	Fuchsia
 	Violet	Violet
 	Large document: redrawing on the CPU	Document volumineux : redessin sur le CPU
+	Redrawing	Redessin
 	This redraw took {seconds} s on the CPU.	Ce redessin sur le CPU a pris {seconds} s.
 	Edits that change the whole document, such as a layer's blend mode, opacity or visibility, redraw all of it.	Les modifications qui touchent tout le document, comme le mode de fusion, l'opacité ou la visibilité d'un calque, le redessinent entièrement.
 	Its layers don't fit the GPU memory budget. Raising Memory usage in Preferences › Performance raises the budget, up to a quarter of this computer's memory.	Les calques dépassent le budget de mémoire GPU. Augmenter Utilisation de la mémoire dans Préférences › Performances relève ce budget, jusqu'au quart de la mémoire de cet ordinateur.
@@ -3066,6 +3077,7 @@ curves	Smooth	Lisser
 	Paint over hair or fur on the image; Alt paints the other mode	Peignez sur les cheveux ou la fourrure dans l'image ; Alt peint dans l'autre mode
 	Clear Brush Strokes	Effacer les traits de pinceau
 	Show rulers	Afficher les règles
+	Presentation	Présentation
 
 # Color Sampler (added with the i18n coverage repair)
 	Click to place · Alt-click or drag off-canvas to remove	Cliquez pour placer · Alt-clic ou glisser hors du canevas pour supprimer
@@ -3118,3 +3130,4 @@ curves	Smooth	Lisser
 	Step {step} is waiting for its dialog	L’étape {step} attend sa boîte de dialogue
 @plural	{n} action|{n} actions	{n} action|{n} actions
 	Auto Add/Delete	Ajout/suppr. auto
+	ICO is limited to 256 × 256 pixels	Le format ICO est limité à 256 × 256 pixels

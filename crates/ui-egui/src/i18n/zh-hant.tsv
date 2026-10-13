@@ -19,6 +19,15 @@
 # kept. Full-width punctuation (，。：) inside sentences; half-width parentheses and the " · "
 # separators as in the English.
 
+# Channel Options and New Spot Channel (#3761)
+	Channel Color	色版顏色
+	Color Indicates:	色彩指示：
+	Solidity:	硬度：
+	Masked Areas	遮色片區域
+	Selected Areas	選取區域
+	Spot Color	特別色
+	Ink Characteristics	油墨特性
+
 # Guide layout dialog
 
 # Custom print paper (#3820)
@@ -81,6 +90,8 @@
 	Save	儲存
 	Save As…	另存新檔…
 	Save a Copy…	儲存拷貝…
+	{name} can't keep everything in this document	{name} 無法保留此文件中的所有內容
+	Choose a format that keeps it, such as Photoshop (PSD), or save a copy.	請選擇能保留全部內容的格式，例如 Photoshop (PSD)，或儲存拷貝。
 	Revert	回復
 	Export	匯出
 	Quick Export as PNG	快速匯出為 PNG
@@ -380,6 +391,7 @@
 	Update Modified Content	更新修改過的內容
 	Update All Modified Content	更新所有修改過的內容
 	Stack Mode	堆疊模式
+	Choose Stack Mode:	選擇堆疊模式：
 	Entropy	熵
 	Kurtosis	峰度
 	Maximum	最大
@@ -869,6 +881,7 @@
 	Background	背景
 	Background Color	背景色
 	Background Contents	背景內容
+	Custom background color	自訂背景色
 	Balance	平衡
 	Baseline	基線
 	Baseline shift	基線位移
@@ -2396,6 +2409,7 @@ cameraRaw	Blending	混合
 	Violet	紫羅蘭色
 	Reset	重設
 	Large document: redrawing on the CPU	大型文件：正在以 CPU 重繪
+	Redrawing	正在重繪
 	This redraw took {seconds} s on the CPU.	此次 CPU 重繪耗時 {seconds} 秒。
 	Edits that change the whole document, such as a layer's blend mode, opacity or visibility, redraw all of it.	變更整份文件的編輯（例如圖層的混合模式、不透明度或可見度）會重繪整份文件。
 	Its layers don't fit the GPU memory budget. Raising Memory usage in Preferences › Performance raises the budget, up to a quarter of this computer's memory.	圖層超出 GPU 記憶體預算。在 偏好設定 › 效能 中提高記憶體使用量可增加預算，最多為本機記憶體的四分之一。
@@ -2640,6 +2654,7 @@ curves	Smooth	平滑
 	Select the crop presets to delete	選取要刪除的裁切預設集
 	Enter a name for the crop preset	輸入裁切預設集的名稱
 	There is no crop size or ratio to save	沒有可儲存的裁切尺寸或比例
+	Presentation	呈現
 
 # Color Sampler (added with the i18n coverage repair)
 	Click to place · Alt-click or drag off-canvas to remove	按一下以放置 · Alt 按一下或拖曳至畫布外以移除
@@ -2707,3 +2722,4 @@ curves	Smooth	平滑
 	Step {step} is waiting for its dialog	步驟 {step} 正在等待其對話框
 @plural	{n} action|{n} actions	{n} 個動作
 	Auto Add/Delete	自動增加/刪除
+	ICO is limited to 256 × 256 pixels	ICO 最大為 256 × 256 像素

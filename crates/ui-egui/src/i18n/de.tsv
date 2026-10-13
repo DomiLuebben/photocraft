@@ -15,6 +15,14 @@
 # way. Product and technology names (PhotoCraft, ArtCraft, OpenType, CMYK, Lab ...) stay in Latin
 # letters; the trailing "…" of dialog commands is kept. Plural rule: one|other (n != 1 -> other).
 
+# Channel Options and New Spot Channel (#3761)
+	Channel Color	Kanalfarbe
+	Color Indicates:	Farbe kennzeichnet:
+	Solidity:	Solidität:
+	Masked Areas	Maskierte Bereiche
+	Selected Areas	Ausgewählte Bereiche
+	Ink Characteristics	Farbeigenschaften
+
 # Guide layout dialog
 
 # Custom print paper (#3820)
@@ -77,6 +85,8 @@
 	Save	Speichern
 	Save As…	Speichern unter…
 	Save a Copy…	Kopie speichern…
+	{name} can't keep everything in this document	{name} kann nicht alles in diesem Dokument erhalten
+	Choose a format that keeps it, such as Photoshop (PSD), or save a copy.	Wählen Sie ein Format, das alles erhält, etwa Photoshop (PSD), oder speichern Sie eine Kopie.
 	Revert	Zurücksetzen
 	Export	Exportieren
 	Quick Export as PNG	Schnellexport als PNG
@@ -376,6 +386,7 @@
 	Update Modified Content	Geänderten Inhalt aktualisieren
 	Update All Modified Content	Alle geänderten Inhalte aktualisieren
 	Stack Mode	Stapelmodus
+	Choose Stack Mode:	Stapelmodus auswählen:
 	Entropy	Entropie
 	Kurtosis	Kurtosis
 	Maximum	Maximum
@@ -855,6 +866,7 @@
 	Background	Hintergrund
 	Background Color	Hintergrundfarbe
 	Background Contents	Hintergrundinhalte
+	Custom background color	Benutzerdefinierte Hintergrundfarbe
 	Balance	Balance
 	Baseline	Grundlinie
 	Baseline shift	Grundlinienverschiebung
@@ -2455,6 +2467,7 @@ layerLabel	No Color	Keine Farbe
 	Fuchsia	Fuchsia
 	Violet	Violett
 	Large document: redrawing on the CPU	Großes Dokument: Neuzeichnen auf der CPU
+	Redrawing	Neuzeichnen
 	This redraw took {seconds} s on the CPU.	Dieses Neuzeichnen auf der CPU dauerte {seconds} s.
 	Edits that change the whole document, such as a layer's blend mode, opacity or visibility, redraw all of it.	Änderungen, die das ganze Dokument betreffen, etwa Füllmethode, Deckkraft oder Sichtbarkeit einer Ebene, zeichnen es vollständig neu.
 	Its layers don't fit the GPU memory budget. Raising Memory usage in Preferences › Performance raises the budget, up to a quarter of this computer's memory.	Die Ebenen passen nicht in das GPU-Speicherbudget. Eine höhere Speichernutzung unter Voreinstellungen › Leistung erhöht das Budget, bis zu einem Viertel des Arbeitsspeichers dieses Computers.
@@ -2690,6 +2703,7 @@ curves	Smooth	Glätten
 	Paint over hair or fur on the image; Alt paints the other mode	Über Haare oder Fell im Bild malen; Alt malt im anderen Modus
 	Clear Brush Strokes	Pinselstriche löschen
 	Show rulers	Lineale anzeigen
+	Presentation	Präsentation
 
 # Color Sampler (added with the i18n coverage repair)
 	Click to place · Alt-click or drag off-canvas to remove	Klicken zum Platzieren · Alt-Klick oder Ziehen außerhalb der Arbeitsfläche zum Entfernen
@@ -3111,3 +3125,4 @@ curves	Smooth	Glätten
 	Step {step} is waiting for its dialog	Schritt {step} wartet auf seinen Dialog
 @plural	{n} action|{n} actions	{n} Aktion|{n} Aktionen
 	Auto Add/Delete	Autom. hinzuf./löschen
+	ICO is limited to 256 × 256 pixels	ICO ist auf 256 × 256 Pixel begrenzt
