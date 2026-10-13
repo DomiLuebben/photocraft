@@ -2727,8 +2727,7 @@ curves	Smooth	Glätten
 	Light Red	Hellrot
 	Medium Blue	Mittelblau
 	Light Gray	Hellgrau
-# --- Texte, die bisher englisch angezeigt wurden (Durchgang durch die Oberfläche, 12.10.2026) ---
-# Unübersetzte Texte aus einem Durchgang durch die Oberfläche (Systeminfo, Kurzbefehle, Werkzeuge)
+# Status messages, system info and tool names
 	Join the ArtCraft Discord ({url})	Dem ArtCraft-Discord beitreten ({url})
 	Nothing to paste: the clipboard holds no image	Nichts einzufügen: Die Zwischenablage enthält kein Bild
 	Graphics adapter: {adapter}	Grafikadapter: {adapter}
@@ -2751,7 +2750,7 @@ curves	Smooth	Glätten
 	List view	Listenansicht
 	Proof Setup…	Proof einrichten…
 	32-bit Preview Options	32-Bit-Vorschauoptionen
-# Kurzbefehle ohne Menüeintrag (Editor für Tastaturkurzbefehle)
+# Shortcut editor commands without a menu item
 	Toggle Layer Mask Overlay	Ebenenmasken-Überlagerung umschalten
 	Increase Type Size	Schriftgröße erhöhen
 	Decrease Type Size	Schriftgröße verringern
@@ -2782,7 +2781,7 @@ curves	Smooth	Glätten
 	Zoom In (hold, drag to scrub)	Vergrößern (gedrückt halten, zum Zoomen ziehen)
 	Zoom Out (hold)	Verkleinern (gedrückt halten)
 	Erase with Brush or Pencil (hold)	Mit Pinsel oder Buntstift radieren (gedrückt halten)
-# Dokumentinformationen und Farbprofile
+# Document Info and colour profiles
 	Author Title	Position des Urhebers
 	Copyright Status	Urheberrechtsstatus
 	Unknown	Unbekannt
@@ -2803,7 +2802,7 @@ curves	Smooth	Glätten
 	Intent	Renderpriorität
 	Bpc	Schwarzpunktkompensierung
 	Simulate Paper	Papierfarbe simulieren
-# Color Lookup, Schatten/Lichter, Kanäle und Berechnungen
+# Color Lookup, Shadows/Highlights, channels and Calculations
 	Warming Filter (85)	Wärmefilter (85)
 	Lut	LUT
 	Cool	Kühl
@@ -2845,7 +2844,7 @@ curves	Smooth	Glätten
 	Channel2	Kanal 2
 	Channel3	Kanal 3
 	Channel4	Kanal 4
-# Messung (Messprotokoll)
+# Measurement log
 	Label	Beschriftung
 	Date and Time	Datum und Uhrzeit
 	Scale Units	Maßstabseinheiten
@@ -2861,7 +2860,7 @@ curves	Smooth	Glätten
 	Length	Länge
 	W:	B:
 	A:	Wi:
-# Objektivkorrektur, Weichzeichner-Galerie und Verzerrungsfilter
+# Lens Correction, Blur Gallery and distortion filters
 	Pattern Fill…	Musterfüllung…
 	Generic	Allgemein
 	Correct Distortion	Verzerrung korrigieren
@@ -2937,7 +2936,7 @@ curves	Smooth	Glätten
 	Short Strokes	Kurze Striche
 	Medium Strokes	Mittlere Striche
 	Long Strokes	Lange Striche
-# Flammen, Bilderrahmen und Baum (Render-Filter)
+# Render filters: Flame, Picture Frame, Tree
 	Flame Type	Flammentyp
 	One Flame Along Path	Eine Flamme entlang des Pfads
 	Multiple Flames Along Path	Mehrere Flammen entlang des Pfads
@@ -2992,7 +2991,7 @@ curves	Smooth	Glätten
 	Custom Branch Color	Eigene Astfarbe
 	Branches Color	Astfarbe
 	Flat Shading	Flächige Schattierung
-# Objektiv, Beleuchtungseffekte, Tiefenschärfe und Mosaik-Filter
+# Lens, Lighting Effects, depth and mosaic filters
 	Lens	Objektiv
 	Prime35	Festbrennweite 35
 	Prime105	Festbrennweite 105
@@ -3050,7 +3049,7 @@ curves	Smooth	Glätten
 	Row Order	Zeilenreihenfolge
 	Preserve	Erhalten
 	Squareness	Rechteckigkeit
-# Suchen und Ersetzen, Bildgröße, Warp und Ebenenstil-Fülloptionen
+# Find and Replace, image size, Warp and Layer Style blending options
 	Any	Beliebig
 	Cmyk	CMYK
 	To	Nach
