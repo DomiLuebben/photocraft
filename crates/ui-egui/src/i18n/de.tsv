@@ -853,7 +853,7 @@
 	Automatically straighten and level	Automatisch begradigen und ausrichten
 	Automatically straighten near-vertical line segments	Fast vertikale Liniensegmente automatisch begradigen
 	Background	Hintergrund
-# Namen neuer Ebenen, wie sie in der Ebenenleiste erscheinen (Kontext layerName; gespeichert bleibt der englische Name)
+# Generated layer names as the Layers panel shows them (context layerName; the stored name stays English)
 layerName	copy	Kopie
 layerName	Gradient Fill	Verlaufsfüllung
 layerName	Pattern Fill	Musterfüllung
